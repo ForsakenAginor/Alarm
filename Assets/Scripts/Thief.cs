@@ -44,7 +44,7 @@ public class Thief : MonoBehaviour
 
             FlipSprite();
         }
-        else if (collision.TryGetComponent<AlertZone>(out AlertZone zone))
+        else if (collision.TryGetComponent<AlertSignal>(out AlertSignal zone))
         {
             Color invisibleColor = _defaultColor;
             invisibleColor.a = 0;
@@ -54,7 +54,7 @@ public class Thief : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<AlertZone>(out AlertZone zone))        
+        if (collision.TryGetComponent<AlertSignal>(out AlertSignal zone))        
             _sprite.color = _defaultColor;        
     }
 
