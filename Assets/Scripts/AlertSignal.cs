@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-[RequireComponent (typeof(BoxCollider2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class AlertSignal : MonoBehaviour
 {
     [SerializeField] private AudioClip _alertSound;
@@ -31,10 +31,12 @@ public class AlertSignal : MonoBehaviour
 
     private void Update()
     {
-        if (_alertSoundSorce.isPlaying)        
-            _alertSoundSorce.volume = Mathf.MoveTowards(_alertSoundSorce.volume, _targetVolume, Time.deltaTime);        
+        if (_alertSoundSorce.isPlaying)
+        {
+            _alertSoundSorce.volume = Mathf.MoveTowards(_alertSoundSorce.volume, _targetVolume, Time.deltaTime);
 
-        if (_targetVolume == 0 && _alertSoundSorce.volume == 0 && _alertSoundSorce.isPlaying)
-            _alertSoundSorce.Pause();            
+            if (_targetVolume == 0 && _alertSoundSorce.volume == 0 && _alertSoundSorce.isPlaying)
+                _alertSoundSorce.Pause();
+        }
     }
 }
